@@ -3,7 +3,9 @@
 > Track your personal wealth over time — snapshots, categories, charts.
 
 <!-- SCREENSHOT: Hero / Dashboard overview -->
-<!-- ![Dashboard](docs/screenshots/dashboard.png) -->
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/d047a94c-d4f9-4635-a8bb-887b7445803f" />
+
+
 
 ---
 
@@ -15,7 +17,9 @@
 - **History** — full log of all past snapshots
 
 <!-- SCREENSHOT: Charts section -->
-<!-- ![Charts](docs/screenshots/charts.png) -->
+<img width="1122" height="597" alt="image" src="https://github.com/user-attachments/assets/d6746fbb-3939-4a2a-8adb-de3f2dbb3db4" />
+<img width="1089" height="620" alt="image" src="https://github.com/user-attachments/assets/fbcae350-0944-41c7-9c10-e5a8e5bd7378" />
+
 
 ---
 
@@ -44,7 +48,8 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000).
 
 <!-- SCREENSHOT: Categories manager -->
-<!-- ![Categories](docs/screenshots/categories.png) -->
+<img width="1916" height="653" alt="image" src="https://github.com/user-attachments/assets/dc05b3f8-1a16-4851-ad9f-40e24c3c4b50" />
+
 
 ---
 
@@ -59,7 +64,8 @@ node scripts/seed-example.js
 ```
 
 <!-- SCREENSHOT: Snapshot history / table view -->
-<!-- ![History](docs/screenshots/history.png) -->
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/c3b2aa5a-abf6-4b1c-b347-1bd718e1b2d2" />
+
 
 ---
 
