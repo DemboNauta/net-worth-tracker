@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/select";
 import { SnapshotForm } from "@/components/forms/SnapshotForm";
 import { Category, SnapshotWithCategory } from "@/lib/types";
-import { formatCurrency } from "@/lib/format";
+import { formatCurrency, formatDate } from "@/lib/format";
 import { Pencil, Trash2 } from "lucide-react";
 
 export function SnapshotsList() {
@@ -115,7 +115,7 @@ export function SnapshotsList() {
                             {snap.category_name}
                           </Badge>
                           <span className="text-xs text-muted-foreground">
-                            {snap.date}
+                            {formatDate(snap.date)}
                           </span>
                         </div>
                         {snap.account && (

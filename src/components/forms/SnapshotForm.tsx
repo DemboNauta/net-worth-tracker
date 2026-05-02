@@ -44,7 +44,20 @@ export function SnapshotForm({ categories, accounts = [], onSave, editSnapshot, 
     .filter((a) => String(a.category_id) === categoryId)
     .map((a) => a.account);
 
-  const datalistId = `accounts-${categoryId}`;
+  const NEW_ACCOUNT = "__new__";
+  const [newAccountMode, setNewAccountMode] = useState(
+    editSnapshot ? !categoryAccounts.includes(editSnapshot.account ?? "") : false
+  );
+
+  function handleAccountSelect(v: string) {
+    if (v === NEW_ACCOUNT) {
+      setNewAccountMode(true);
+      setAccount("");
+    } else {
+      setNewAccountMode(false);
+      setAccount(v);
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -90,7 +103,7 @@ export function SnapshotForm({ categories, accounts = [], onSave, editSnapshot, 
             <Label>Categoría</Label>
             <Select
               value={categoryId}
-              onValueChange={(v) => { setCategoryId(v ?? ""); setAccount(""); }}
+              onValueChange={(v) => { setCategoryId(v ?? ""); setAccount(""); setNewAccountMode(false); }}
               items={categories.map((cat) => ({ value: String(cat.id), label: cat.name }))}
             >
               <SelectTrigger className="w-full">
@@ -114,19 +127,44 @@ export function SnapshotForm({ categories, accounts = [], onSave, editSnapshot, 
 
           <div className="space-y-1.5">
             <Label>Cuenta / Cartera</Label>
-            {categoryAccounts.length > 0 && (
-              <datalist id={datalistId}>
-                {categoryAccounts.map((a) => (
-                  <option key={a} value={a} />
-                ))}
-              </datalist>
+            {categoryAccounts.length > 0 && !newAccountMode ? (
+              <Select
+                value={account || ""}
+                onValueChange={handleAccountSelect}
+                items={[
+                  ...categoryAccounts.map((a) => ({ value: a, label: a })),
+                  { value: NEW_ACCOUNT, label: "+ Nueva cuenta..." },
+                ]}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Seleccionar cuenta..." />
+                </SelectTrigger>
+                <SelectContent>
+                  {categoryAccounts.map((a) => (
+                    <SelectItem key={a} value={a}>{a}</SelectItem>
+                  ))}
+                  <SelectItem value={NEW_ACCOUNT}>+ Nueva cuenta...</SelectItem>
+                </SelectContent>
+              </Select>
+            ) : (
+              <div className="flex gap-2">
+                <Input
+                  placeholder="Ej: Santander, Coinbase, MyInvestor..."
+                  value={account}
+                  onChange={(e) => setAccount(e.target.value)}
+                  autoFocus={newAccountMode && categoryAccounts.length > 0}
+                />
+                {categoryAccounts.length > 0 && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => { setNewAccountMode(false); setAccount(""); }}
+                  >
+                    Cancelar
+                  </Button>
+                )}
+              </div>
             )}
-            <Input
-              list={categoryAccounts.length > 0 ? datalistId : undefined}
-              placeholder="Ej: Santander, Coinbase, MyInvestor..."
-              value={account}
-              onChange={(e) => setAccount(e.target.value)}
-            />
           </div>
 
           <div className="space-y-1.5">
