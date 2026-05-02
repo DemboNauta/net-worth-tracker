@@ -49,13 +49,13 @@ export function SnapshotForm({ categories, accounts = [], onSave, editSnapshot, 
     editSnapshot ? !categoryAccounts.includes(editSnapshot.account ?? "") : false
   );
 
-  function handleAccountSelect(v: string) {
+  function handleAccountSelect(v: string | null) {
     if (v === NEW_ACCOUNT) {
       setNewAccountMode(true);
       setAccount("");
     } else {
       setNewAccountMode(false);
-      setAccount(v);
+      setAccount(v ?? "");
     }
   }
 
