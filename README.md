@@ -3,7 +3,8 @@
 > Track your personal wealth over time — snapshots, categories, charts.
 
 <!-- SCREENSHOT: Hero / Dashboard overview -->
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/270db526-ba0f-4560-b318-fd25c93b704d" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/d047a94c-d4f9-4635-a8bb-887b7445803f" />
+
 
 
 ---
