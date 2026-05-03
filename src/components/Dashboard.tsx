@@ -175,11 +175,17 @@ export function Dashboard() {
 
       {/* Charts */}
       <Tabs defaultValue="evolucion" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="evolucion">Evolución mensual</TabsTrigger>
-          <TabsTrigger value="tendencia">Tendencia</TabsTrigger>
-          <TabsTrigger value="anual">Anual</TabsTrigger>
-          <TabsTrigger value="distribucion">Distribución</TabsTrigger>
+        <TabsList className="w-full md:w-auto">
+          <TabsTrigger value="evolucion" className="flex-1 md:flex-none text-xs md:text-sm">
+            <span className="md:hidden">Evolución</span>
+            <span className="hidden md:inline">Evolución mensual</span>
+          </TabsTrigger>
+          <TabsTrigger value="tendencia" className="flex-1 md:flex-none text-xs md:text-sm">Tendencia</TabsTrigger>
+          <TabsTrigger value="anual" className="flex-1 md:flex-none text-xs md:text-sm">Anual</TabsTrigger>
+          <TabsTrigger value="distribucion" className="flex-1 md:flex-none text-xs md:text-sm">
+            <span className="md:hidden">Distrib.</span>
+            <span className="hidden md:inline">Distribución</span>
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="evolucion">

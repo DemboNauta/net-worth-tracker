@@ -129,7 +129,7 @@ export function SnapshotsList() {
                       <span className="font-semibold tabular-nums">
                         {formatCurrency(snap.amount)}
                       </span>
-                      <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                         <SnapshotForm
                           categories={categories}
                           accounts={accounts}
